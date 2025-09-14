@@ -1,5 +1,31 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Marquee from "react-fast-marquee";
+
+// Import partner logos
+import partnerBgImg from '/src/assets/Partnerbgimg.png';
+import ns1 from "/src/assets/ns1.jpg";
+import ns2 from "/src/assets/ns2.webp";
+import ns3 from "/src/assets/ns3.jpg";
+import ns5 from "/src/assets/ns5.jpg";
+import ns6 from "/src/assets/ns6.png";
+import ns8 from "/src/assets/ns8.png";
+import ns7 from "/src/assets/ns7.jpg";
+import b1 from "/src/assets/Brandlogofcompress/b1.jpg";
+import b2 from "/src/assets/Brandlogofcompress/b2.jpg";
+import b3 from "/src/assets/b3.jpg";
+import b4 from "/src/assets/b4.jpg";
+import b5 from "/src/assets/Brandlogofcompress/b5.jpg";
+import b6 from "/src/assets/b6.jpg";
+import b7 from "/src/assets/Brandlogofcompress/b7.jpg";
+import b8 from "/src/assets/b8.png";
+import b9 from "/src/assets/b9.jpeg";
+import d1 from "/src/assets/d1.webp";
+import d4_png from "/src/assets/d4.png";
+import d3 from "/src/assets/d3.jpg";
+import d4_jpg from "/src/assets/d4.jpg";
+import d5 from "/src/assets/d5.jpg";
+
 
 // Working Marquee component with actual animation
 const Marquee = ({ children, speed = 50, direction = "left" }) => {
@@ -55,36 +81,36 @@ const Marquee = ({ children, speed = 50, direction = "left" }) => {
 const Partners = () => {
   const [clicked, setClicked] = useState(false);
 
-  // Sample partner images data
-  const partnerImages = {
-    streamers: [
-      "/src/assets/ns1.jpg",
-      "/src/assets/ns2.webp",
-      "/src/assets/ns3.jpg",
-      "/src/assets/ns5.jpg",
-      "/src/assets/ns6.png",
-      "/src/assets/ns8.png",
-      "/src/assets/ns7.jpg",
-    ],
-    brands: [
-      "/src/assets/Brandlogofcompress/b1.jpg",
-      "/src/assets/Brandlogofcompress/b2.jpg",
-      "/src/assets/b3.jpg",
-      "/src/assets/b4.jpg",
-      "/src/assets/Brandlogofcompress/b5.jpg",
-      "/src/assets/b6.jpg",
-      "/src/assets/Brandlogofcompress/b7.jpg",
-      "/src/assets/b8.png",
-      "/src/assets/b9.jpeg",
-    ],
-    distributors: [
-      "/src/assets/d1.webp",
-      "/src/assets/d4.png",
-      "/src/assets/d3.jpg",
-      "/src/assets/d4.jpg",
-      "/src/assets/d5.jpg",
-    ],
-  };
+  const networks = [
+    { src: ns1, name: "Network 1" },
+    { src: ns2, name: "Network 2" },
+    { src: ns3, name: "Network 3" },
+    { src: ns5, name: "Network 5" },
+    { src: ns6, name: "Network 6" },
+    { src: ns8, name: "Network 8" },
+    { src: ns7, name: "Network 7" },
+  ];
+
+  const brands = [
+    { src: b1, name: "Brand 1" },
+    { src: b2, name: "Brand 2" },
+    { src: b3, name: "Brand 3" },
+    { src: b4, name: "Brand 4" },
+    { src: b5, name: "Brand 5" },
+    { src: b6, name: "Brand 6" },
+    { src: b7, name: "Brand 7" },
+    { src: b8, name: "Brand 8" },
+    { src: b9, name: "Brand 9" },
+  ];
+
+  const distributors = [
+    { src: d1, name: "Distributor 1" },
+    { src: d4_png, name: "Distributor 4" },
+    { src: d3, name: "Distributor 3" },
+    { src: d4_jpg, name: "Distributor 4" },
+    { src: d5, name: "Distributor 5" },
+  ];
+
 
   return (
     <div className="w-full h-screen overflow-hidden">
@@ -95,11 +121,11 @@ const Partners = () => {
           networks <span className="text-[#319d0a]">&</span> streamers
         </h2>
         <div className="flex flex-row items-center mb-14 gap-2">
-          {partnerImages.streamers.map((imgSrc, i) => (
+          {networks.map((partner, i) => (
             <div key={i} className="h-[70px] overflow-hidden">
               <img
-                src={imgSrc}
-                alt={`Streamer ${i + 1}`}
+                src={partner.src}
+                alt={partner.name}
                 className="h-[70px] w-auto object-cover object-center"
               />
             </div>
@@ -111,11 +137,11 @@ const Partners = () => {
           brands
         </h2>
         <div className="flex flex-row items-center mb-14 gap-2">
-          {partnerImages.brands.map((imgSrc, i) => (
+          {brands.map((partner, i) => (
             <div key={i} className="h-[70px] overflow-hidden">
               <img
-                src={imgSrc}
-                alt={`Brand ${i + 1}`}
+                src={partner.src}
+                alt={partner.name}
                 className="h-[70px] w-auto object-cover object-center"
               />
             </div>
@@ -127,11 +153,11 @@ const Partners = () => {
           distributors
         </h2>
         <div className="flex flex-row items-center gap-2">
-          {partnerImages.distributors.map((imgSrc, i) => (
+          {distributors.map((partner, i) => (
             <div key={i} className="h-[70px] overflow-hidden">
               <img
-                src={imgSrc}
-                alt={`Distributor ${i + 1}`}
+                src={partner.src}
+                alt={partner.name}
                 className="h-[70px] w-auto object-cover object-center"
               />
             </div>
@@ -145,7 +171,7 @@ const Partners = () => {
         <div
           className="absolute inset-0 bg-center bg-no-repeat bg-cover opacity-10 blur-sm"
           style={{
-            backgroundImage: `url('/src/assets/Partnerbgimg.png')`,
+            backgroundImage: `url(${partnerBgImg})`,
           }}
         />
 
@@ -162,14 +188,14 @@ const Partners = () => {
             </h3>
             <div className="relative w-full">
               <Marquee speed={25} direction="left">
-                {partnerImages.streamers.map((imgSrc, i) => (
+                {networks.map((partner, i) => (
                   <div
                     key={i}
                     className="inline-flex items-center justify-center h-16 w-28 mx-3"
                   >
                     <img
-                      src={imgSrc}
-                      alt={`Streamer ${i + 1}`}
+                      src={partner.src}
+                      alt={partner.name}
                       className="h-full w-auto object-contain max-w-full"
                     />
                   </div>
@@ -186,14 +212,14 @@ const Partners = () => {
             <h3 className="mb-4 text-xl font-semibold text-center text-gray-300">Brands</h3>
             <div className="relative w-full">
               <Marquee speed={30} direction="left">
-                {partnerImages.brands.map((imgSrc, i) => (
+                {brands.map((partner, i) => (
                   <div
                     key={i}
                     className="inline-flex items-center justify-center h-16 w-28 mx-3"
                   >
                     <img
-                      src={imgSrc}
-                      alt={`Brand ${i + 1}`}
+                      src={partner.src}
+                      alt={partner.name}
                       className="h-full w-auto object-contain max-w-full"
                     />
                   </div>
@@ -212,14 +238,14 @@ const Partners = () => {
             </h3>
             <div className="relative w-full">
               <Marquee speed={28} direction="right">
-                {partnerImages.distributors.map((imgSrc, i) => (
+                {distributors.map((partner, i) => (
                   <div
                     key={i}
                     className="inline-flex items-center justify-center h-16 w-28 mx-3"
                   >
                     <img
-                      src={imgSrc}
-                      alt={`Distributor ${i + 1}`}
+                      src={partner.src}
+                      alt={partner.name}
                       className="h-full w-auto object-contain max-w-full"
                     />
                   </div>
