@@ -1,1 +1,1 @@
-# Green Couch Entertainment Website
+# Green Couch Entertainment Website - Ready for Deployment
