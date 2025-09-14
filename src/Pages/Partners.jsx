@@ -27,57 +27,6 @@ import d4_jpg from "/src/assets/d4.jpg";
 import d5 from "/src/assets/d5.jpg";
 
 
-// Working Marquee component with actual animation
-const Marquee = ({ children, speed = 50, direction = "left" }) => {
-  return (
-    <>
-      <style>{`
-        @keyframes scroll-left {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        @keyframes scroll-right {
-          0% {
-            transform: translateX(-50%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-        
-        .marquee-container {
-          overflow: hidden;
-          position: relative;
-          width: 100%;
-        }
-        
-        .marquee-content {
-          display: flex;
-          animation: ${direction === "left" ? "scroll-left" : "scroll-right"} ${100 / speed}s linear infinite;
-        }
-        
-        .marquee-item-group {
-          display: flex;
-          flex-shrink: 0;
-          align-items: center;
-        }
-      `}</style>
-      
-      <div className="marquee-container">
-        <div className="marquee-content">
-          <div className="marquee-item-group">{children}</div>
-          <div className="marquee-item-group">{children}</div>
-        </div>
-      </div>
-    </>
-  );
-};
-
 const Partners = () => {
   const [clicked, setClicked] = useState(false);
 
