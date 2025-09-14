@@ -1,7 +1,7 @@
-import React from "react";
-import Layout from "../Components/Layout";
-import reelVideo from "/src/assets/reelbg.mp4";
-import reelBgTransparent from "/src/assets/reel.png"; 
+import React, { useRef, useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import reelVideo from "../assets/reelbg.mp4";
+import reelBgTransparent from "../assets/reelbg_transparent.png"; 
 
 
 const WatchReel = () => {
